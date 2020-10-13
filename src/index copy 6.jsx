@@ -1,5 +1,8 @@
 import {
+  get,
+  set,
   observable,
+  values,
   autorun,
   computed,
   toJS,
@@ -8,21 +11,10 @@ import {
 
 // 1. 封装可观测值
 debugger
-class OrderLine {
-  @observable price = 0;
-  @observable amount = 1;
-
-  constructor(price) {
-      this.price = price;
-  }
-
-  @computed get total() {
-    debugger
-      return this.price * this.amount;
-  }
-}
-
-const store = new OrderLine(100)
+const store = observable({
+  a: 'initialA',
+  b: 2,
+})
 
 console.log(store, '最开始封装后store的值')
 debugger
